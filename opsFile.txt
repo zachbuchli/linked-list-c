@@ -1,0 +1,11 @@
+s
+a This is my first string
+a Another one here
+s
+get 1
+a My last string
+get 2
+rm 1
+get 1
+clear
+s

@@ -1,0 +1,134 @@
+\hypertarget{list_8h}{}\doxysection{list.\+h File Reference}
+\label{list_8h}\index{list.h@{list.h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnode__t}{node\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlist__t}{list\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structnode__t}{node\+\_\+t}} \mbox{\hyperlink{list_8h_a5117d12b617b7e9e4b80e95876e69a17}{node\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structlist__t}{list\+\_\+t}} \mbox{\hyperlink{list_8h_a2400033025820f5e82c0e72c47386627}{list\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$ \mbox{\hyperlink{list_8h_a687bdd7e3c2980e8e3df0cf070b9bead}{create\+\_\+empty\+\_\+list}} ()
+\item 
+void \mbox{\hyperlink{list_8h_a6cc823ea2c34dd60da4a8930e07aa7dc}{print\+List}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list)
+\item 
+void \mbox{\hyperlink{list_8h_a086d2892cfdb629b6ff0125e178d4a70}{add}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list, char $\ast$elem)
+\item 
+void \mbox{\hyperlink{list_8h_a33b71e499bf3c2699f19a87dec321198}{add\+\_\+at}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list, char $\ast$elem, int i)
+\item 
+char $\ast$ \mbox{\hyperlink{list_8h_a1fd628fbf3dfcde19541a352d4ee39fc}{remove\+\_\+at}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list, int i)
+\item 
+char $\ast$ \mbox{\hyperlink{list_8h_ac92db5ac821f713f251b17ce89e1cfb7}{get}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list, int i)
+\item 
+int \mbox{\hyperlink{list_8h_a30f5bd7ce8bd08534190f6a59879b9ff}{size}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list)
+\item 
+void \mbox{\hyperlink{list_8h_a96b1eb0a8427313a01ce7ccf72637abf}{clear}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list)
+\item 
+void \mbox{\hyperlink{list_8h_aa7f1d87fdc57c86962136f9adbe362d3}{destroy\+\_\+empty\+\_\+list}} (\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header for for the singly linked list and node struct 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{list_8h_a2400033025820f5e82c0e72c47386627}\label{list_8h_a2400033025820f5e82c0e72c47386627}} 
+\index{list.h@{list.h}!list\_t@{list\_t}}
+\index{list\_t@{list\_t}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_t}{list\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structlist__t}{list\+\_\+t}} \mbox{\hyperlink{structlist__t}{list\+\_\+t}}}
+
+creates a struct \mbox{\hyperlink{structlist__t}{list\+\_\+t}}
+
+Members\+: head\+Ptr \+: pointer to the head of the linked list item\+Count \+: total amount of items in the list; \mbox{\Hypertarget{list_8h_a5117d12b617b7e9e4b80e95876e69a17}\label{list_8h_a5117d12b617b7e9e4b80e95876e69a17}} 
+\index{list.h@{list.h}!node\_t@{node\_t}}
+\index{node\_t@{node\_t}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{node\_t}{node\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structnode__t}{node\+\_\+t}} \mbox{\hyperlink{structnode__t}{node\+\_\+t}}}
+
+creates a struct \mbox{\hyperlink{structnode__t}{node\+\_\+t}}
+
+Members\+: string \+: pointer string \mbox{\hyperlink{structnode__t}{node\+\_\+t}} \+: pointer to next node 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{list_8h_a086d2892cfdb629b6ff0125e178d4a70}\label{list_8h_a086d2892cfdb629b6ff0125e178d4a70}} 
+\index{list.h@{list.h}!add@{add}}
+\index{add@{add}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list,  }\item[{char $\ast$}]{elem }\end{DoxyParamCaption})}
+
+function to add the contents of the string ptr elem to the end of the list \mbox{\Hypertarget{list_8h_a33b71e499bf3c2699f19a87dec321198}\label{list_8h_a33b71e499bf3c2699f19a87dec321198}} 
+\index{list.h@{list.h}!add\_at@{add\_at}}
+\index{add\_at@{add\_at}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{add\_at()}{add\_at()}}
+{\footnotesize\ttfamily void add\+\_\+at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list,  }\item[{char $\ast$}]{elem,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+function to adds the contents of the string ptr elem to the ith position in the list \mbox{\Hypertarget{list_8h_a96b1eb0a8427313a01ce7ccf72637abf}\label{list_8h_a96b1eb0a8427313a01ce7ccf72637abf}} 
+\index{list.h@{list.h}!clear@{clear}}
+\index{clear@{clear}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+function to clear the contents of the list also frees memory of all the nodes in the list. \mbox{\Hypertarget{list_8h_a687bdd7e3c2980e8e3df0cf070b9bead}\label{list_8h_a687bdd7e3c2980e8e3df0cf070b9bead}} 
+\index{list.h@{list.h}!create\_empty\_list@{create\_empty\_list}}
+\index{create\_empty\_list@{create\_empty\_list}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{create\_empty\_list()}{create\_empty\_list()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlist__t}{list\+\_\+t}}$\ast$ create\+\_\+empty\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to allocates memory for an empty \mbox{\hyperlink{structlist__t}{list\+\_\+t}} struct \begin{DoxyReturn}{Returns}
+ptr to \mbox{\hyperlink{structlist__t}{list\+\_\+t}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_aa7f1d87fdc57c86962136f9adbe362d3}\label{list_8h_aa7f1d87fdc57c86962136f9adbe362d3}} 
+\index{list.h@{list.h}!destroy\_empty\_list@{destroy\_empty\_list}}
+\index{destroy\_empty\_list@{destroy\_empty\_list}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_empty\_list()}{destroy\_empty\_list()}}
+{\footnotesize\ttfamily void destroy\+\_\+empty\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+function to free the memory of the list \mbox{\Hypertarget{list_8h_ac92db5ac821f713f251b17ce89e1cfb7}\label{list_8h_ac92db5ac821f713f251b17ce89e1cfb7}} 
+\index{list.h@{list.h}!get@{get}}
+\index{get@{get}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily char$\ast$ get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+function that returns node -\/$>$ string at index i.
+
+\begin{DoxyReturn}{Returns}
+node -\/$>$ string at index i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a6cc823ea2c34dd60da4a8930e07aa7dc}\label{list_8h_a6cc823ea2c34dd60da4a8930e07aa7dc}} 
+\index{list.h@{list.h}!printList@{printList}}
+\index{printList@{printList}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{printList()}{printList()}}
+{\footnotesize\ttfamily void print\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+prints contents of list \mbox{\Hypertarget{list_8h_a1fd628fbf3dfcde19541a352d4ee39fc}\label{list_8h_a1fd628fbf3dfcde19541a352d4ee39fc}} 
+\index{list.h@{list.h}!remove\_at@{remove\_at}}
+\index{remove\_at@{remove\_at}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{remove\_at()}{remove\_at()}}
+{\footnotesize\ttfamily char$\ast$ remove\+\_\+at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+function to removes a node from the list at position i. Also frees dynmaically allocated nodes on removal
+
+\begin{DoxyReturn}{Returns}
+Null if i out of range, node -\/$>$ string otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_a30f5bd7ce8bd08534190f6a59879b9ff}\label{list_8h_a30f5bd7ce8bd08534190f6a59879b9ff}} 
+\index{list.h@{list.h}!size@{size}}
+\index{size@{size}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlist__t}{list\+\_\+t}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+function that returns the size of the list \begin{DoxyReturn}{Returns}
+size of the list 
+\end{DoxyReturn}

@@ -13,6 +13,7 @@ list_t *create_empty_list()
 {
     // Assign the list pointer to initList
     list_t *list = (list_t *)malloc(sizeof(list_t));
+
     // test if memory allocated correctly
     if (list == NULL)
     {
@@ -35,7 +36,6 @@ void printList(list_t *list)
     node_t *curPtr = list->headPtr;
     for (int i = 0; i < list->itemCount; ++i)
     {
-
         printf("%s\n", curPtr->string);
         curPtr = curPtr->next;
     }
@@ -74,7 +74,7 @@ void add(list_t *list, char *elem)
             }
             curPtr->next = new;
             // increment itemcount
-            list->itemCount = 1 + (list->itemCount);
+            ++(list->itemCount);
         }
     }
 }

@@ -41,16 +41,13 @@ void printList(list_t *list)
     }
 }
 
-void add(list_t *list, char *elem)
+int add(list_t *list, char *elem)
 {
     // new node
     node_t *new = (node_t *)malloc(sizeof(node_t));
 
     if (new == NULL)
-    {
-        printf("Memmory was not allocated correctly\n");
-        exit(1);
-    }
+        return 1; // An error occured with malloc
     else
     {
         new->next = NULL;
@@ -76,16 +73,14 @@ void add(list_t *list, char *elem)
             // increment itemcount
             ++(list->itemCount);
         }
+        return 0; // add was successfull
     }
 }
 
-void add_at(list_t *list, char *elem, int i)
+int add_at(list_t *list, char *elem, int i)
 {
     if (i >= list->itemCount)
-    {
-        printf("index out of range\n");
-        exit(0);
-    }
+        return 1; // error: index out of range
     else
     {
         node_t *curPtr = list->headPtr;
@@ -98,10 +93,7 @@ void add_at(list_t *list, char *elem, int i)
         }
         node_t *new = (node_t *)malloc(sizeof(node_t));
         if (new == NULL)
-        {
-            printf("Memmory was not allocated correctly\n");
-            exit(1);
-        }
+            return 2; // error: no memory avaliable
         else
         {
             new->string = elem;
@@ -110,6 +102,8 @@ void add_at(list_t *list, char *elem, int i)
             // increament item count
             list->itemCount = 1 + (list->itemCount);
         }
+
+        return 0; // add_at successful
     }
 }
 

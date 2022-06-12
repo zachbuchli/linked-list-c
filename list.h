@@ -42,13 +42,17 @@ void printList(list_t *list);
 
 /** function to add the contents of the string ptr elem to the end
  *  of the list
+ *
+ * @return 0 if add successfull, 1 if there was an error allocating memory with malloc
  */
-void add(list_t *list, char *elem);
+int add(list_t *list, char *elem);
 
 /** function to adds the contents of the string ptr elem to the ith
  *  position in the list
+ *
+ * @return 0 if add successfull, 1 if index i is out of range, and 2 if error with malloc
  */
-void add_at(list_t *list, char *elem, int i);
+int add_at(list_t *list, char *elem, int i);
 
 /** function to removes a node from the list at position i.
  *  Also frees dynmaically allocated nodes on removal
@@ -59,7 +63,7 @@ char *remove_at(list_t *list, int i);
 
 /** function that returns node -> string at index i.
  *
- *  @return node -> string at index i
+ *  @return node -> string at index i. Null if index i out of range
  */
 char *get(list_t *list, int i);
 

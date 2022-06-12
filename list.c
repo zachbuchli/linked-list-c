@@ -16,10 +16,7 @@ list_t *list_create()
 
     // test if memory allocated correctly
     if (list == NULL)
-    {
-        printf("Memmory was not allocated correctly\n");
-        exit(1);
-    }
+        return NULL; // error with malloc
     else
     {
         // set headPtr = Null

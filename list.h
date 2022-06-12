@@ -32,7 +32,7 @@ typedef struct list_t
 } list_t;
 
 /** function to allocates memory for an empty list_t struct
- * @return ptr to list_t
+ * @return ptr to list_t, returns null if error with malloc
  */
 list_t *list_create();
 
@@ -79,6 +79,6 @@ void list_clear(list_t *list);
 
 /** function to free the memory of the list
  */
-void list_(list_t *list);
+void list_destroy(list_t *list);
 
 #endif

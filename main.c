@@ -32,7 +32,13 @@ int main(int argc, char **argsv)
     }
 
     // Initalize Variables
-    list_t *list = create_empty_list();
+    list_t *list = list_create();
+    if (list == NULL)
+    {
+        fprintf(stderr, "Error allocating memory with malloc");
+        exit(EXIT_FAILURE);
+    }
+
     char *line = NULL;     // Variable to contain line returned from getline
     size_t lineSize = 255; // line buffer size
     ssize_t read;
@@ -54,8 +60,9 @@ int main(int argc, char **argsv)
         // size command
         if (strncmp(cmd, "s", 1) == 0)
         {
-            printf("%d\n", size(list));
+            printf("%d\n", list_size(list));
         }
+
         // add command
         else if (strncmp(cmd, "a", 1) == 0)
         {
@@ -64,8 +71,8 @@ int main(int argc, char **argsv)
             string = (char *)malloc(64 * sizeof(char));
             if (string == NULL)
             {
-                printf("error allocating memory\n");
-                exit(1);
+                fprintf(stderr, "error allocating memory\n");
+                exit(EXIT_FAILURE);
             }
             int j = 0;
             i++;
@@ -77,7 +84,12 @@ int main(int argc, char **argsv)
                 ++i;
                 itr = line[i];
             }
-            add(list, string);
+
+            if (list_add(list, string) == 1)
+            {
+                fprintf(stderr, "Error allocating memory with malloc");
+                exit(EXIT_FAILURE);
+            }
         }
         // add_at command
         else if (strncmp(cmd, "add_at", 6) == 0)
@@ -92,8 +104,8 @@ int main(int argc, char **argsv)
             string = (char *)malloc(64 * sizeof(char));
             if (string == NULL)
             {
-                printf("error allocating memory\n");
-                exit(1);
+                fprintf(stderr, "error allocating memory\n");
+                exit(EXIT_FAILURE);
             }
             int j = 0;
             while (itr != '\n')
@@ -103,7 +115,18 @@ int main(int argc, char **argsv)
                 ++i;
                 itr = line[i];
             }
-            add_at(list, string, index);
+
+            int err = list_add_at(list, string, index);
+            if (err == 1)
+            {
+                fprintf(stderr, "Error: index i out of range");
+                exit(EXIT_FAILURE);
+            }
+            else if (err == 2)
+            {
+                fprintf(stderr, "Error allocating memory with malloc");
+                exit(EXIT_FAILURE);
+            }
         }
         // get command
         else if (strncmp(cmd, "get", 3) == 0)
@@ -114,7 +137,12 @@ int main(int argc, char **argsv)
             number[0] = itr;
 
             int index = atoi(number);
-            char *getString = get(list, index);
+            char *getString = list_get(list, index);
+            if (getString == NULL)
+            {
+                fprintf(stderr, "Error: Index i out of range");
+                exit(EXIT_FAILURE);
+            }
             printf("%s\n", getString);
         }
         // remove command
@@ -126,11 +154,11 @@ int main(int argc, char **argsv)
             number[0] = itr;
 
             int index = atoi(number);
-            char *result = remove_at(list, index);
+            char *result = list_remove_at(list, index);
             if (result == NULL)
             {
-                printf("index out of Range. Cannot remove");
-                exit(1);
+                fprintf(stderr, "index out of Range. Cannot remove");
+                exit(EXIT_FAILURE);
             }
             else
             {
@@ -141,13 +169,13 @@ int main(int argc, char **argsv)
         // clear command
         else if (strncmp(cmd, "clear", 5) == 0)
         {
-            clear(list);
+            list_clear(list);
         }
     }
 
     // close the ops file
     fclose(OPS);
     // destory list
-    clear(list);
-    destroy_empty_list(list);
+    list_clear(list);
+    list_destroy(list);
 }

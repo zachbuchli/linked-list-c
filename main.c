@@ -1,5 +1,6 @@
 /** @file main.c
- * main function for stringlist program
+ * main function for stringlist program. This main routing is classic input loop that takes in a file of commands
+ * and outputs the results based on the commands.
  */
 
 #include <stdio.h>
@@ -15,8 +16,8 @@ int main(int argc, char **argsv)
     // checks if command file was specififed
     if (argc != 2)
     {
-        printf("Please specifiy a ops file\n");
-        exit(1);
+        fprintf(stderr, "Please specifiy a ops file\n");
+        exit(EXIT_FAILURE);
     }
 
     // path to ops file
@@ -26,15 +27,16 @@ int main(int argc, char **argsv)
     FILE *OPS;
     if ((OPS = fopen(opsFile, "r")) == NULL)
     {
-        printf("Problem opening key file '%s'; errno: %d\n", opsFile, errno);
-        return 1;
+        fprintf(stderr, "Problem opening key file '%s'; errno: %d\n", opsFile, errno);
+        exit(EXIT_FAILURE);
     }
 
+    // Initalize Variables
     list_t *list = create_empty_list();
-
-    char *line = NULL;
-    size_t lineSize = 255;
+    char *line = NULL;     // Variable to contain line returned from getline
+    size_t lineSize = 255; // line buffer size
     ssize_t read;
+
     // iterates through opsFile 1 line at a time
     while ((read = getline(&line, &lineSize, OPS)) != -1)
     {

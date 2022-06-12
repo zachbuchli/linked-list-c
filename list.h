@@ -34,51 +34,51 @@ typedef struct list_t
 /** function to allocates memory for an empty list_t struct
  * @return ptr to list_t
  */
-list_t *create_empty_list();
+list_t *list_create();
 
 /** prints contents of list
  */
-void printList(list_t *list);
+void list_print(list_t *list);
 
-/** function to add the contents of the string ptr elem to the end
+/** function to list_add the contents of the string ptr elem to the end
  *  of the list
  *
- * @return 0 if add successfull, 1 if there was an error allocating memory with malloc
+ * @return 0 if list_add successfull, 1 if there was an error allocating memory with malloc
  */
-int add(list_t *list, char *elem);
+int list_add(list_t *list, char *elem);
 
 /** function to adds the contents of the string ptr elem to the ith
  *  position in the list
  *
- * @return 0 if add successfull, 1 if index i is out of range, and 2 if error with malloc
+ * @return 0 if list_add successfull, 1 if index i is out of range, and 2 if error with malloc
  */
-int add_at(list_t *list, char *elem, int i);
+int list_add_at(list_t *list, char *elem, int i);
 
 /** function to removes a node from the list at position i.
  *  Also frees dynmaically allocated nodes on removal
  *
  *  @return Null if i out of range, node -> string otherwise
  */
-char *remove_at(list_t *list, int i);
+char *list_remove_at(list_t *list, int i);
 
 /** function that returns node -> string at index i.
  *
  *  @return node -> string at index i. Null if index i out of range
  */
-char *get(list_t *list, int i);
+char *list_get(list_t *list, int i);
 
 /** function that returns the size of the list
  *  @return size of the list
  */
-int size(list_t *list);
+int list_size(list_t *list);
 
 /** function to clear the contents of the list
  *  also frees memory of all the nodes in the list.
  */
-void clear(list_t *list);
+void list_clear(list_t *list);
 
 /** function to free the memory of the list
  */
-void destroy_empty_list(list_t *list);
+void list_(list_t *list);
 
 #endif

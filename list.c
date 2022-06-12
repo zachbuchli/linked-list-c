@@ -9,7 +9,7 @@
 
 #include "list.h"
 
-list_t *create_empty_list()
+list_t *list_create()
 {
     // Assign the list pointer to initList
     list_t *list = (list_t *)malloc(sizeof(list_t));
@@ -31,7 +31,7 @@ list_t *create_empty_list()
     }
 }
 
-void printList(list_t *list)
+void list_print(list_t *list)
 {
     node_t *curPtr = list->headPtr;
     for (int i = 0; i < list->itemCount; ++i)
@@ -41,7 +41,7 @@ void printList(list_t *list)
     }
 }
 
-int add(list_t *list, char *elem)
+int list_add(list_t *list, char *elem)
 {
     // new node
     node_t *new = (node_t *)malloc(sizeof(node_t));
@@ -77,7 +77,7 @@ int add(list_t *list, char *elem)
     }
 }
 
-int add_at(list_t *list, char *elem, int i)
+int list_add_at(list_t *list, char *elem, int i)
 {
     if (i >= list->itemCount)
         return 1; // error: index out of range
@@ -107,7 +107,7 @@ int add_at(list_t *list, char *elem, int i)
     }
 }
 
-char *remove_at(list_t *list, int i)
+char *list_remove_at(list_t *list, int i)
 {
     // because indexes start at itemCount -1
     if (i >= list->itemCount)
@@ -153,7 +153,7 @@ char *remove_at(list_t *list, int i)
     }
 }
 
-char *get(list_t *list, int i)
+char *list_get(list_t *list, int i)
 {
     if (i >= list->itemCount)
     {
@@ -170,12 +170,12 @@ char *get(list_t *list, int i)
     }
 }
 
-int size(list_t *list)
+int list_size(list_t *list)
 {
     return list->itemCount;
 }
 
-void clear(list_t *list)
+void list_clear(list_t *list)
 {
     node_t *prevPtr = NULL;
     node_t *curPtr = list->headPtr;
@@ -189,7 +189,7 @@ void clear(list_t *list)
     }
 }
 
-void destroy_empty_list(list_t *list)
+void list_destroy(list_t *list)
 {
     free(list);
 }
